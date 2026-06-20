@@ -88,7 +88,7 @@ function HomePage() {
             <ul className="space-y-2">
               {sections.map(({ id, label, Icon, progress }) => (
                 <li key={id}>
-                  <button className="w-full flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-primary/40 transition-colors text-left">
+                  <Link to="/editor" className="w-full flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-primary/40 transition-colors text-left">
                     <div className="h-10 w-10 rounded-lg bg-secondary grid place-items-center">
                       <Icon className="h-4 w-4 text-primary" />
                     </div>
@@ -99,7 +99,7 @@ function HomePage() {
                       </div>
                     </div>
                     <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
