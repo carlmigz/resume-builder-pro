@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { PhoneFrame } from "@/components/PhoneFrame";
 import { BottomNav } from "@/components/BottomNav";
@@ -44,9 +44,9 @@ function HomePage() {
               <p className="text-xs text-muted-foreground">Welcome back</p>
               <h1 className="text-2xl font-semibold mt-0.5">{user.name.split(" ")[0]} 👋</h1>
             </div>
-            <button className="h-11 w-11 rounded-full gradient-primary grid place-items-center glow-primary">
+            <Link to="/editor" className="h-11 w-11 rounded-full gradient-primary grid place-items-center glow-primary">
               <Plus className="h-5 w-5 text-primary-foreground" />
-            </button>
+            </Link>
           </div>
 
           {/* Active resume card */}
@@ -70,9 +70,9 @@ function HomePage() {
               </div>
             </div>
             <div className="flex gap-2 mt-5">
-              <button className="flex-1 h-10 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition">
+              <Link to="/editor" className="flex-1 h-10 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition grid place-items-center">
                 Continue editing
-              </button>
+              </Link>
               <button className="h-10 w-10 rounded-xl bg-secondary grid place-items-center hover:bg-muted transition">
                 <Download className="h-4 w-4" />
               </button>
@@ -88,7 +88,7 @@ function HomePage() {
             <ul className="space-y-2">
               {sections.map(({ id, label, Icon, progress }) => (
                 <li key={id}>
-                  <button className="w-full flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-primary/40 transition-colors text-left">
+                  <Link to="/editor" className="w-full flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-primary/40 transition-colors text-left">
                     <div className="h-10 w-10 rounded-lg bg-secondary grid place-items-center">
                       <Icon className="h-4 w-4 text-primary" />
                     </div>
@@ -99,7 +99,7 @@ function HomePage() {
                       </div>
                     </div>
                     <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
