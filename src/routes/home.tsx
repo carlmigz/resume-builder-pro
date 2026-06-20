@@ -44,9 +44,9 @@ function HomePage() {
               <p className="text-xs text-muted-foreground">Welcome back</p>
               <h1 className="text-2xl font-semibold mt-0.5">{user.name.split(" ")[0]} 👋</h1>
             </div>
-            <button className="h-11 w-11 rounded-full gradient-primary grid place-items-center glow-primary">
+            <Link to="/editor" className="h-11 w-11 rounded-full gradient-primary grid place-items-center glow-primary">
               <Plus className="h-5 w-5 text-primary-foreground" />
-            </button>
+            </Link>
           </div>
 
           {/* Active resume card */}
