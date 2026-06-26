@@ -73,9 +73,9 @@ function HomePage() {
               <Link to="/editor" className="flex-1 h-10 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition grid place-items-center">
                 Continue editing
               </Link>
-              <button className="h-10 w-10 rounded-xl bg-secondary grid place-items-center hover:bg-muted transition">
+              <Link to="/preview" className="h-10 w-10 rounded-xl bg-secondary grid place-items-center hover:bg-muted transition">
                 <Download className="h-4 w-4" />
-              </button>
+              </Link>
             </div>
           </div>
 
