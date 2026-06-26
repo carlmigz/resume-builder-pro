@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { PhoneFrame } from "@/components/PhoneFrame";
 import { BottomNav } from "@/components/BottomNav";
@@ -18,17 +18,17 @@ const groups = [
   {
     label: "Account",
     items: [
-      { label: "Personal information", Icon: Settings },
-      { label: "Notifications", Icon: Bell },
-      { label: "Privacy & security", Icon: Shield },
+      { label: "Personal information", Icon: Settings, to: "/personal-info" as const },
+      { label: "Notifications", Icon: Bell, to: "/notifications" as const },
+      { label: "Privacy & security", Icon: Shield, to: "/privacy" as const },
     ],
   },
   {
     label: "Resumely",
     items: [
-      { label: "Billing & plan", Icon: CreditCard },
-      { label: "Export history", Icon: FileText },
-      { label: "Help center", Icon: HelpCircle },
+      { label: "Billing & plan", Icon: CreditCard, to: "/billing" as const },
+      { label: "Export history", Icon: FileText, to: "/export-history" as const },
+      { label: "Help center", Icon: HelpCircle, to: "/help" as const },
     ],
   },
 ];
@@ -75,13 +75,13 @@ function ProfilePage() {
             <div key={g.label} className="mt-7">
               <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2 px-1">{g.label}</p>
               <ul className="rounded-2xl border border-border bg-surface overflow-hidden divide-y divide-border">
-                {g.items.map(({ label, Icon }) => (
+                {g.items.map(({ label, Icon, to }) => (
                   <li key={label}>
-                    <button className="w-full flex items-center gap-3 px-4 py-3.5 hover:bg-secondary transition-colors text-left">
+                    <Link to={to} className="w-full flex items-center gap-3 px-4 py-3.5 hover:bg-secondary transition-colors text-left">
                       <Icon className="h-4 w-4 text-muted-foreground" />
                       <span className="text-sm flex-1">{label}</span>
                       <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
