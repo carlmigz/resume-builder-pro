@@ -12,8 +12,15 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ResumesRouteImport } from './routes/resumes'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PreviewRouteImport } from './routes/preview'
+import { Route as PersonalInfoRouteImport } from './routes/personal-info'
+import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as ExportHistoryRouteImport } from './routes/export-history'
 import { Route as EditorRouteImport } from './routes/editor'
+import { Route as BillingRouteImport } from './routes/billing'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SignupRoute = SignupRouteImport.update({
@@ -31,14 +38,49 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewRoute = PreviewRouteImport.update({
+  id: '/preview',
+  path: '/preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PersonalInfoRoute = PersonalInfoRouteImport.update({
+  id: '/personal-info',
+  path: '/personal-info',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExportHistoryRoute = ExportHistoryRouteImport.update({
+  id: '/export-history',
+  path: '/export-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EditorRoute = EditorRouteImport.update({
   id: '/editor',
   path: '/editor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BillingRoute = BillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -49,16 +91,30 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/billing': typeof BillingRoute
   '/editor': typeof EditorRoute
+  '/export-history': typeof ExportHistoryRoute
+  '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/notifications': typeof NotificationsRoute
+  '/personal-info': typeof PersonalInfoRoute
+  '/preview': typeof PreviewRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/resumes': typeof ResumesRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/billing': typeof BillingRoute
   '/editor': typeof EditorRoute
+  '/export-history': typeof ExportHistoryRoute
+  '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/notifications': typeof NotificationsRoute
+  '/personal-info': typeof PersonalInfoRoute
+  '/preview': typeof PreviewRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/resumes': typeof ResumesRoute
   '/signup': typeof SignupRoute
@@ -66,22 +122,62 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/billing': typeof BillingRoute
   '/editor': typeof EditorRoute
+  '/export-history': typeof ExportHistoryRoute
+  '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/notifications': typeof NotificationsRoute
+  '/personal-info': typeof PersonalInfoRoute
+  '/preview': typeof PreviewRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/resumes': typeof ResumesRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/editor' | '/home' | '/profile' | '/resumes' | '/signup'
+  fullPaths:
+    | '/'
+    | '/billing'
+    | '/editor'
+    | '/export-history'
+    | '/help'
+    | '/home'
+    | '/notifications'
+    | '/personal-info'
+    | '/preview'
+    | '/privacy'
+    | '/profile'
+    | '/resumes'
+    | '/signup'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/editor' | '/home' | '/profile' | '/resumes' | '/signup'
+  to:
+    | '/'
+    | '/billing'
+    | '/editor'
+    | '/export-history'
+    | '/help'
+    | '/home'
+    | '/notifications'
+    | '/personal-info'
+    | '/preview'
+    | '/privacy'
+    | '/profile'
+    | '/resumes'
+    | '/signup'
   id:
     | '__root__'
     | '/'
+    | '/billing'
     | '/editor'
+    | '/export-history'
+    | '/help'
     | '/home'
+    | '/notifications'
+    | '/personal-info'
+    | '/preview'
+    | '/privacy'
     | '/profile'
     | '/resumes'
     | '/signup'
@@ -89,8 +185,15 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BillingRoute: typeof BillingRoute
   EditorRoute: typeof EditorRoute
+  ExportHistoryRoute: typeof ExportHistoryRoute
+  HelpRoute: typeof HelpRoute
   HomeRoute: typeof HomeRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PersonalInfoRoute: typeof PersonalInfoRoute
+  PreviewRoute: typeof PreviewRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
   ResumesRoute: typeof ResumesRoute
   SignupRoute: typeof SignupRoute
@@ -119,6 +222,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview': {
+      id: '/preview'
+      path: '/preview'
+      fullPath: '/preview'
+      preLoaderRoute: typeof PreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personal-info': {
+      id: '/personal-info'
+      path: '/personal-info'
+      fullPath: '/personal-info'
+      preLoaderRoute: typeof PersonalInfoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
@@ -126,11 +257,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/export-history': {
+      id: '/export-history'
+      path: '/export-history'
+      fullPath: '/export-history'
+      preLoaderRoute: typeof ExportHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/editor': {
       id: '/editor'
       path: '/editor'
       fullPath: '/editor'
       preLoaderRoute: typeof EditorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/billing': {
+      id: '/billing'
+      path: '/billing'
+      fullPath: '/billing'
+      preLoaderRoute: typeof BillingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -145,8 +297,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BillingRoute: BillingRoute,
   EditorRoute: EditorRoute,
+  ExportHistoryRoute: ExportHistoryRoute,
+  HelpRoute: HelpRoute,
   HomeRoute: HomeRoute,
+  NotificationsRoute: NotificationsRoute,
+  PersonalInfoRoute: PersonalInfoRoute,
+  PreviewRoute: PreviewRoute,
+  PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
   ResumesRoute: ResumesRoute,
   SignupRoute: SignupRoute,

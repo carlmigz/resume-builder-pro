@@ -116,3 +116,14 @@
 @utility shadow-card {
   box-shadow: var(--shadow-card);
 }
+
+.print-only { display: none; }
+
+@media print {
+  body { background: #fff !important; }
+  .no-print, nav, header { display: none !important; }
+  .print-only { display: block !important; }
+  #resume-doc { box-shadow: none !important; border: none !important; }
+  @page { margin: 0.5in; }
+}
+
